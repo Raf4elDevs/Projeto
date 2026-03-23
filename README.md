@@ -2,7 +2,7 @@
 
 ByteBite - ( Robô Culinário com IA )
 
-## Grupo ByteLab
+## Grupo BiteLab
 
 Participantes:
 
