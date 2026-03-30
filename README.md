@@ -1,6 +1,6 @@
 # Projeto 
 
-ByteBite - ( Robô Culinário com IA )
+BiteByte - ( Robô Culinário com IA )
 
 ## Grupo BiteLab
 
