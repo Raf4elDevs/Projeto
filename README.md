@@ -2,12 +2,12 @@
 
 BiteByte - ( Robô Culinário com IA )
 
-## Grupo BiteLab
+## Grupo TeenLab
 
 Participantes:
 
 - Paola Laiane Araujo Pereira - Full stack (Líder)
-- Rafael Gomes Da Silva - Back-End (Analista)
+- Rafael Gomes Da Silva - Full stack (Analista)
 - Sofia Marques - Full stack
 - Lorena da Silva Lima Front-End / Design
 
