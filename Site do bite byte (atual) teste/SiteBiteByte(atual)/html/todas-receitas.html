@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorar Receitas | BiteByte</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/ICON.BITEBYTE (2).svg">
+    <link rel="stylesheet" href="../css/receitas.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container header-flex">
+            <!-- Logo: navegação via ID e listener -->
+            <h1 id="logo-todas" class="logo">Bite<span>Byte</span></h1>
+        </div>
+        
+        <div class="header-search" style="max-width: 700px; margin: 0 auto 30px;">
+            <form id="recipe-search-form" autocomplete="off">
+                <input id="recipe-search" type="search" placeholder="Buscar receita pelo nome..." aria-label="Buscar receita pelo nome">
+                <button type="submit" aria-label="Buscar"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </header>
+
+    <main class="container">
+        <header class="category-header">
+            <h2>O que vamos cozinhar hoje?</h2>
+        </header>
+
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">Todas</button>
+            <button class="filter-btn" data-filter="carnes">Carnes</button>
+            <button class="filter-btn" data-filter="massas">Massas</button>
+            <button class="filter-btn" data-filter="doces">Doces</button>
+            <button class="filter-btn" data-filter="fitness">Fitness</button>
+            <button class="filter-btn" data-filter="sopas">Sopas</button>
+            <button class="filter-btn" data-filter="vegetariana">Vegetarianas</button>
+        </div>
+
+        <section class="recipe-grid" id="recipe-grid">
+            <div class="empty-state" style="text-align:center;padding:32px 0;color:#666;">Carregando receitas...</div>
+        </section>
+    </main>
+
+    <!-- Modal de Detalhes da Receita -->
+    <div id="recipe-modal" class="modal-overlay hidden">
+        <div class="modal-container">
+            <button id="close-modal-btn" class="modal-close" type="button" aria-label="Fechar">&times;</button>
+            
+            <div class="modal-body" id="modal-content">
+                <!-- Conteúdo dinâmico injetado via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

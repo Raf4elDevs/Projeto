@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiteByte | Receitas Deliciosas</title>
+
+    <link rel="icon" type="image/svg+xml" href="../assets/ICON.BITEBYTE (2).svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-flex">
+            <!-- Logo: navegação via ID e listener em script.js -->
+            <h1 id="logo-home" class="logo" style="cursor:pointer">
+                Bite<span>Byte</span>
+            </h1>
+            
+            <div class="header-auth-action">
+                <a href="cadastro.html" id="authLink" class="btn-login-header">
+                    <i class="fas fa-user-circle"></i> <span id="authText">Entrar / Cadastrar</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="carousel-container">
+        <div class="carousel-slide active">
+            <img src="https://res.cloudinary.com/ptoaofvd/image/upload/f_auto,q_auto/v1785784992/sopas.que.aquecem_vfzowr.png" alt="Sopas">
+            <div class="carousel-caption">
+                <span class="badge">Especial</span>
+                <h2>Sopas que Aquecem o Coração</h2>
+                <p>5 receitas perfeitas para noites frias.</p>
+                <a href="especial-sopas.html" class="btn-main">Ver Especial</a>
+            </div>
+        </div>
+
+        <div class="carousel-slide">
+            <img src="https://res.cloudinary.com/ptoaofvd/image/upload/f_auto,q_auto/v1785785215/churrasco_amuygj.jpg" alt="Churrasco">
+            <div class="carousel-caption">
+                <span class="badge">Carnes</span>
+                <h2>Segredos do Churrasco Gaúcho</h2>
+                <p>Aprenda o ponto correto da carne com especialistas.</p>
+                <a href="especial-churrasco.html" class="btn-main">Acessar Guia</a>
+            </div>
+        </div>
+
+        <div class="carousel-slide">
+            <img src="https://res.cloudinary.com/ptoaofvd/image/upload/f_auto,q_auto/v1786381162/sobremesas_buhbgw.jpg" alt="Sobremesas">
+            <div class="carousel-caption">
+                <span class="badge">Doces</span>
+                <h2>Confeitaria para Iniciantes</h2>
+                <p>Transforme sua cozinha em uma doceria profissional.</p>
+                <a href="especial-confeitaria.html" class="btn-main">Quero Aprender</a>
+            </div>
+        </div>
+
+        <button type="button" id="slide-prev" class="prev">&#10094;</button>
+        <button type="button" id="slide-next" class="next">&#10095;</button>
+    </section>
+
+    <main class="container">
+        <div class="section-header">
+            <h3 class="section-title">Conhecendo BiteByte</h3>
+        </div>
+        <div class="info-grid">
+            <div class="info-card orange-card">
+                <i class="fa-solid fa-robot"></i>
+                <h4>BiteByte | Chef IA</h4>
+                <p>“Mais que um robô chef: o BiteByte conecta tecnologia, criatividade e sabor em um só sistema inteligente.”</p>
+                <button type="button" id="openAiCardBtn" class="btn-mini">Sobre</button>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h3 class="section-title">Com base no seu gosto</h3>
+            <a href="todas-receitas.html" class="view-all">Explorar tudo →</a>
+        </div>
+
+        <div class="recipe-grid" id="recipe-grid">
+            <div class="empty-state" style="text-align:center;padding:32px 0;color:#666;">Carregando receitas...</div>
+        </div>
+
+        <!-- Seção Sobre Nós -->
+        <section class="about-premium">
+            <div class="premium-hero-title">
+                <h2>Sobre Nós</h2>
+            </div>
+
+            <div class="premium-block-wrap">
+                <div class="premium-img-box img-missao">
+                    <img src="https://img.magnific.com/free-photo/successful-happy-business-team_53876-74892.jpg?semt=ais_hybrid&w=740&q=80" alt="Cozinha Profissional">
+                </div>
+                <div class="premium-text-box text-missao">
+                    <h3>Como surgiu BiteByte?</h3>
+                    <p>O BiteByte nasceu a partir do nosso TCC (Trabalho de Conclusão de Curso), com a proposta de desenvolver um robô culinário equipado com inteligência artificial para auxiliar as pessoas na cozinha. Escolhemos esse tema como um grande desafio, já que envolvia áreas nas quais nosso conhecimento ainda era limitado.</p>
+                    <p>Ao longo do projeto, enfrentamos obstáculos, aprendemos novas tecnologias e expandimos nossas habilidades, tanto técnicas quanto pessoais. Mais do que um trabalho acadêmico, o BiteByte se tornou uma experiência de crescimento, inovação e amadurecimento para toda a equipe.</p>
+                </div>
+            </div>
+
+            <div class="premium-block-wrap reverse">
+                <div class="premium-img-box img-visao">
+                    <img src="https://res.cloudinary.com/ptoaofvd/image/upload/f_auto,q_auto/v1790009790/f7e85f9b-6fc2-4a38-98ec-266083f7d88d.png" alt="Visão de Futuro">
+                </div>
+                <div class="premium-text-box text-visao">
+                    <h3>Por que a escolha da culinária como tema principal?</h3>
+                    <p>A escolha da culinária veio por ser algo presente na vida de todos. Cozinhar vai além da necessidade básica — é também cuidado, criatividade e qualidade de vida. Em um mundo cada vez mais acelerado, queremos incentivar a culinária caseira como uma alternativa mais saudável, prática e acessível, reduzindo a dependência dos fast foods através da tecnologia e da inteligência artificial.</p>
+                </div>
+            </div>
+
+            <div class="premium-team">
+                <h3>Nossos Desenvolvedores</h3>
+                <div class="team-cards-grid">
+                    <div class="team-card">
+                        <i class="fas fa-user-circle"></i>
+                        <h4>Paola Araujo</h4>
+                        <span>Responsável pelo back-end e hardware.</span>
+                    </div>
+                    <div class="team-card">
+                        <i class="fas fa-user-circle"></i>
+                        <h4>Lorena Silva</h4>
+                        <span>Responsável pelo front-end e design.</span>
+                    </div>
+                    <div class="team-card">
+                        <i class="fas fa-user-circle"></i>
+                        <h4>Sofia Marques</h4>
+                        <span>Responsável pelo full-stack.</span>
+                    </div>
+                    <div class="team-card">
+                        <i class="fas fa-user-circle"></i>
+                        <h4>Rafael Gomes</h4>
+                        <span>Responsável pela inteligência artificial.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Chat Flutuante IA -->
+    <div id="ai-chat-wrapper">
+        <div id="ai-chat-window" class="chat-hidden">
+            <div class="chat-header">
+                <div class="ai-info">
+                    <i class="fas fa-robot"></i>
+                    <div>
+                        <span>BiteByte</span>
+                    </div>
+                </div>
+                <button type="button" id="close-chat-btn" class="close-chat">&times;</button>
+            </div>
+
+            <div id="chat-messages">
+                <div class="message ai-msg">
+                    Vamos cozinhar com o que tem na sua geladeira?
+                </div>
+            </div>
+
+            <div class="chat-input-area">
+                <input type="text" id="user-input" placeholder="Ex: O que fazer com ovo e tomate?">
+                <button id="send-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+
+        <button type="button" id="ai-floating-btn">
+            <div class="btn-icon">
+                <i class="fas fa-comment-dots"></i>
+            </div>
+            <span class="btn-text">BiteByte</span>
+        </button>
+    </div>
+
+    <!-- Modal de Detalhes da Receita -->
+    <div id="recipe-modal" class="modal-overlay hidden">
+        <div class="modal-container">
+            <button id="close-modal-btn" class="modal-close" type="button" aria-label="Fechar">&times;</button>
+            
+            <div class="modal-body" id="modal-content">
+                <!-- Conteúdo dinâmico injetado via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal BiteByte IA -->
+    <div id="ai-about-modal" class="ai-modal-overlay hidden" aria-hidden="true">
+        <div class="ai-modal-card" role="dialog" aria-modal="true" aria-labelledby="ai-about-title">
+            <button id="close-ai-modal-btn" class="ai-modal-close" type="button" aria-label="Fechar">&times;</button>
+
+            <div class="ai-modal-hero">
+                <div class="ai-modal-copy">
+                    <span class="ai-kicker">BiteByte</span>
+                    <h3 id="ai-about-title">Chef IA</h3>
+                    <p>Uma solução inteligente para transformar ingredientes simples em experiências gastronômicas incríveis.</p>
+                </div>
+
+                <div class="ai-visual">
+                    <img src="https://i.pinimg.com/1200x/af/72/70/af7270688fbda3a9e92af5412e8ad8cb.jpg" alt="Robô chef do BiteByte">
+                </div>
+            </div>
+
+            <div class="ai-modal-content">
+                <div class="ai-panel">
+                    <h4>O que é</h4>
+                    <p>O BiteByte é um sistema que combina inteligência artificial, criatividade culinária e praticidade para sugerir receitas com base no que você tem em casa.</p>
+                </div>
+
+                <div class="ai-panel highlight">
+                    <h4>Como funciona</h4>
+                    <p>Ele entende seu gosto, analisa ingredientes e cria combinações que equilibram sabor, tempo e valor nutricional.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2026 - BiteByte. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    <script src="../js/script.js"></script>
+</body>
+</html>

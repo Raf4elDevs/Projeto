@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin - Gerenciador de Receitas | BiteByte</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/ICON.BITEBYTE (2).svg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <main class="admin-container" id="admin-root">
+    <header class="admin-header">
+      <div class="admin-brand">
+        <span class="admin-logo" role="img" aria-label="Logo Utensílios">🍴</span>
+        <div>
+          <h1>Painel Admin</h1>
+          <p>Gerencie receitas de forma rápida e intuitiva.</p>
+        </div>
+      </div>
+      <div class="admin-actions">
+        <span id="adminName" class="admin-status hidden">Logado como <strong>Admin</strong></span>
+        <button id="btn-logout" class="btn secondary hidden" type="button">Sair</button>
+        <a href="index.html" class="btn outline">Voltar ao site</a>
+      </div>
+    </header>
+
+    <section class="admin-grid">
+      <div class="admin-panel">
+        
+        <!-- LOGIN CARD -->
+        <section id="loginCard" class="card admin-card admin-login-card">
+          <h2>Entrar no Painel</h2>
+          <form id="loginForm" class="admin-login-form">
+            <div class="form-group">
+              <label for="loginUser">Usuário</label>
+              <input id="loginUser" class="input" placeholder="admin" required autocomplete="username" />
+            </div>
+            <div class="form-group">
+              <label for="loginPass">Senha</label>
+              <input id="loginPass" type="password" class="input" placeholder="••••••••" required autocomplete="current-password" />
+            </div>
+            <button id="loginBtn" class="btn primary" type="submit">Entrar</button>
+            <p class="form-note" style="margin-top:10px; color:#6b7280;">Credenciais padrão: usuário <strong>admin</strong> e senha <strong>changeme</strong>.</p>
+            <div id="loginMsg" class="admin-message" style="margin-top:10px;" aria-live="polite"></div>
+          </form>
+        </section>
+
+        <!-- BUSCAR RECEITAS CARD -->
+        <section class="card admin-card admin-search-card">
+          <h2>Buscar Receitas</h2>
+          <div class="admin-search">
+            <input id="searchInput" placeholder="Buscar receitas pelo título..." class="input" autocomplete="off" />
+            <button id="searchBtn" class="btn secondary" type="button">Buscar</button>
+          </div>
+          <div id="recipeList" class="recipe-list" style="margin-top: 15px;" aria-live="polite"></div>
+        </section>
+      </div>
+
+      <!-- SIDEBAR CRIAR / EDITAR -->
+      <aside class="admin-sidebar">
+        <section class="card admin-card">
+          <div class="form-header">
+            <h2>Criar / Editar</h2>
+            <p class="form-note">Use os campos abaixo para adicionar receitas de forma profissional.</p>
+          </div>
+          <form id="recipeForm" class="recipe-form" onsubmit="return false;">
+            <input id="r_id" type="hidden">
+
+            <div class="form-group">
+              <label for="r_title">Título</label>
+              <input id="r_title" class="input" placeholder="Ex: Bolo de Cenoura" required>
+            </div>
+
+            <div class="form-group">
+              <label for="r_category">Categoria</label>
+              <select id="r_category" class="select">
+                <option value="">Selecione uma categoria</option>
+                <option value="massas">massas</option>
+                <option value="doces">doces</option>
+                <option value="fitness">fitness</option>
+                <option value="sopas">sopas</option>
+                <option value="vegetarianas">vegetarianas</option>
+                <option value="carnes">carnes</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="r_time">Tempo de Preparo</label>
+              <input id="r_time" class="input" placeholder="Ex: 45 min">
+            </div>
+
+            <div class="form-group">
+              <label for="r_difficulty">Dificuldade</label>
+              <select id="r_difficulty" class="select">
+                <option value="">Selecione a dificuldade</option>
+                <option value="Fácil">Fácil</option>
+                <option value="Médio">Médio</option>
+                <option value="Difícil">Difícil</option>
+              </select>
+            </div>
+
+            <!-- CAMPO DE IMAGEM COM BOTÃO DO CLOUDINARY E BOTÃO REMOVER (X) -->
+            <div class="form-group">
+              <label for="r_image">Imagem da Receita</label>
+              <div style="display: flex; gap: 8px;">
+                <input id="r_image" class="input" type="url" placeholder="URL gerada após o upload" readonly>
+                <button type="button" id="btnUploadCloudinary" class="btn secondary" style="white-space: nowrap;">📸 Enviar Foto</button>
+              </div>
+
+              <!-- CONTAINER DA PRÉVIA DA IMAGEM -->
+              <div id="imagePreviewContainer" class="image-preview-container">
+                <img id="r_image_preview" src="" alt="Prévia da Imagem">
+                <button id="btnRemoveImage" class="btn-remove-image" type="button" title="Remover imagem">✕</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="r_excerpt">Resumo</label>
+              <textarea id="r_excerpt" class="textarea" rows="3" placeholder="Pequena descrição da receita..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="r_ingredients">Ingredientes</label>
+              <textarea id="r_ingredients" class="textarea" rows="3" placeholder="2 xícaras de farinha; 1 xícara de açúcar"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="r_steps">Passos</label>
+              <textarea id="r_steps" class="textarea" rows="4" placeholder="Misture os secos; Adicione os líquidos; Asse por 40 min"></textarea>
+            </div>
+
+            <div class="btn-group" style="display: flex; gap: 8px; margin-top: 15px;">
+              <button id="saveBtn" class="btn primary" type="button">Salvar</button>
+              <button id="updateBtn" class="btn secondary" type="button" style="display: none;">Atualizar</button>
+              <button id="clearBtn" class="btn outline" type="button">Limpar</button>
+            </div>
+
+            <div id="adminMsg" class="admin-message" style="margin-top: 10px; font-weight: 500;" aria-live="polite"></div>
+          </form>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <!-- Biblioteca do Cloudinary Upload Widget -->
+  <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+  
+  <script src="../js/admin.js"></script>
+</body>
+</html>
