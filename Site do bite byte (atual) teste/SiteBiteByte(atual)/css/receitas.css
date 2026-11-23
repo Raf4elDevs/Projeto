@@ -1,0 +1,130 @@
+:root {
+    --primary: #e67e22;
+    --dark: #1e272e;
+    --text-muted: #808e9b;
+    --bg: #fdfdfd;
+    --card-bg: #ffffff;
+    --shadow: 0 12px 40px rgba(0,0,0,0.06);
+    --radius: 24px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg);
+    color: var(--dark);
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+.main-header { padding: 25px 0; background: #fff; border-bottom: 1px solid #f1f1f1; }
+.logo { font-size: 2rem; font-weight: 700; color: var(--primary); cursor: pointer; }
+.logo span { color: var(--dark); }
+.header-flex { display: flex; justify-content: space-between; align-items: center; }
+nav ul { display: flex; list-style: none; gap: 25px; }
+nav ul li a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.95rem; }
+
+.category-header { text-align: center; margin: 50px 0;  }
+.badge { background: #fff3e0; color: var(--primary); padding: 6px 16px; border-radius: 50px; font-weight: 700; font-size: 0.8rem; }
+.category-header h2 { font-size: 2.5rem; margin-top: 15px; letter-spacing: -1px; color: #e67e22; }
+
+.filter-bar { display: flex; justify-content: center; gap: 10px; margin-bottom: 50px; overflow-x: auto; padding: 10px }
+.filter-btn {
+    padding: 12px 25px;
+    border: 1px solid #f1f1f1;
+    background: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+}
+.filter-btn.active { background:#e67e22; color: #fff; border-color: #e67e22; }
+.filter-btn:hover:not(.active) { background: #f8f9fa; transform: translateY(-2px); }
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 35px;
+    padding-bottom: 100px;
+}
+
+.recipe-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.4s ease;
+    border: 1px solid #f9f9f9;
+}
+
+.recipe-card:hover { transform: translateY(-12px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+
+.img-container { height: 240px; position: relative; overflow: hidden; }
+.img-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.recipe-card:hover .img-container img { transform: scale(1.08); }
+
+.tag { position: absolute; top: 15px; left: 15px; background: rgba(255,255,255,0.9); padding: 5px 12px; border-radius: 10px; font-size: 0.75rem; font-weight: 700; }
+
+.card-info { padding: 25px; }
+.category-name { color: var(--dark); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+.card-info h4 { font-size: 1.4rem; margin: 8px 0 15px; font-weight: 700; line-height: 1.3; color: #e67e22; }
+
+.meta { display: flex; gap: 20px; color: var(--text-muted); font-size: 0.85rem; padding-top: 15px; border-top: 1px solid #f8f9fa; }
+.meta i { color: #d1d8e0; margin-right: 5px; }
+
+.hidden { display: none !important; }
+/* Seleciona o span que contém o ícone de folha (Vegetariano) */
+.meta span:has(.fa-leaf) {
+    color: var(--primary);
+    font-weight: 600; /* Opcional: dá um leve destaque ao texto */
+}
+
+/* Seleciona o span que contém o ícone de hashtag (Sem Glúten, Lactose, etc) */
+.meta span:has(.fa-hashtag) {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* Garante que o ícone também herde a cor laranja */
+.meta span:has(.fa-leaf) i,
+.meta span:has(.fa-hashtag) i {
+    color: var(--primary);
+}
+
+.header-search {
+    flex: 1; 
+    max-width: 1000px; /* Mantém a barra centralizada e elegante */
+}
+
+.header-search form {
+    display: flex;
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 50px; /* Estilo arredondado Google */
+    padding: 6px 15px;
+    transition: 0.3s;
+}
+
+.header-search form:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(255, 117, 31, 0.2);
+}
+
+.header-search input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    padding: 5px;
+    font-size: 0.95rem;
+}
+
+.header-search button {
+    border: none;
+    background: transparent;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 1.1rem;
+}

@@ -1,0 +1,344 @@
+/* Configurações Globais */
+:root {
+    --primary-color: #ff8800; /* Roxo/Azul da imagem 1 */
+    --secondary-color: #f7ab55;
+    --glass-bg: rgba(253, 226, 199, 0.548);
+    --glass-border: rgba(172, 156, 156, 0.3);
+    --text-color: #ffffff;
+    --input-bg: rgb(255, 242, 232);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff; /* Fundo */
+    overflow: hidden;
+    position: relative;
+      /* Define a imagem de fundo */
+            background-image: url('https://media.licdn.com/dms/image/v2/D4E12AQHyKT5uFc_IdQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1724844428543?e=2147483647&v=beta&t=uHRihVlSxqpaF-mlqFHhkRigIt5Q5pHwQ7-R24nrTNI');
+            
+            /* Faz a imagem cobrir toda a área */
+            background-size: cover;
+            
+            /* Evita que a imagem se repita */
+            background-repeat: no-repeat;
+            
+            /* Centraliza a imagem */
+            background-position: center;
+            
+            /* Fixa a imagem para que não role com o site */
+            background-attachment: fixed;
+}
+
+/* Bolhas Flutuantes de Gradiente (Referência à Imagem 2) */
+.bg-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+    animation: move 20s infinite alternate;
+}
+
+.shape-1 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(45deg, #f19831, #c4793b);
+    top: -10%;
+    left: -10%;
+}
+
+.shape-2 {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(45deg, #d48206, #f6c05c);
+    bottom: -5%;
+    right: 10%;
+}
+
+.shape-3 {
+    width: 250px;
+    height: 250px;
+    background: #f59e0b;
+    top: 20%;
+    right: -5%;
+    opacity: 0.5;
+}
+
+@keyframes move {
+    from { transform: translate(0, 0); }
+    to { transform: translate(50px, 100px); }
+}
+
+/* Container Principal Glassmorphism */
+.glass-wrapper {
+    width: 100%;
+    max-width: 950px;
+    padding: 20px;
+}
+
+.glass-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Sidebar Lateral (Referência à estrutura da Imagem 1) */
+.glass-sidebar {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px 30px;
+    border-right: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logo {
+    color: rgb(0, 0, 0);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.auth-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 50px 0;
+}
+/*------------*/
+.auth-tab {
+    background: transparent;
+    border: none;
+    color: rgba(0, 0, 0, 0.6);
+    text-align: left;
+    padding: 12px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.95rem;
+}
+
+.auth-tab:hover, .auth-tab.active {
+    background: var(--input-bg);
+    color: rgba(0, 0, 0, 0.315);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.auth-tab.active {
+    border-left: 4px solid var(--primary-color);
+}
+
+.sidebar-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.admin-quick-link {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff9f43, #f17c0c);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 14px rgba(241, 124, 12, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    opacity: 0.9;
+}
+
+.admin-quick-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(241, 124, 12, 0.45);
+}
+
+.admin-quick-link i {
+    font-size: 0.9rem;
+}
+
+.sidebar-footer a {
+    color: rgba(0, 0, 0, 0.664);
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+/* Área de Conteúdo / Formulários */
+.glass-content {
+    padding: 50px;
+    color: rgb(0, 0, 0);
+}
+
+.auth-form {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.auth-form.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 { font-size: 2rem; margin-bottom: 10px; }
+.subtitle { color: rgba(0, 0, 0, 0.6); margin-bottom: 35px; font-size: 0.9rem; }
+
+/* Inputs e Itens da Lista */
+.form-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.list-item {
+    background: var(--input-bg);
+    border: 1px solid var(--glass-border);
+    padding: 15px 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: 0.3s;
+}
+
+.list-item:focus-within {
+    border-color: var(--primary-color);
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.list-item label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.list-item input {
+    background: transparent;
+    border: none;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    outline: none;
+}
+
+.icon-arrow {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.3;
+}
+
+/* Botão Estilo Glass */
+.btn-glass {
+    width: 100%;
+    margin-top: 35px;
+    padding: 16px;
+    border-radius: 15px;
+    border: none;
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-glass:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Sistema de Alertas */
+.alerta {
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.alerta.erro { background: rgba(255, 244, 231, 0.2); border: 1px solid #ef9744; color: #fcd6a5; }
+.alerta.sucesso { background: rgba(255, 220, 186, 0.2); border: 1px solid #c57922; color: #f7e7bb; }
+.oculta { display: none; }
+
+/* Utilitários */
+.input-with-icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle-password {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+/* Responsividade */
+@media (max-width: 800px) {
+    .glass-container {
+        grid-template-columns: 1fr;
+    }
+    .glass-sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--glass-border);
+        padding: 20px;
+    }
+    .auth-menu {
+        flex-direction: row;
+        margin: 20px 0;
+        overflow-x: auto;
+    }
+}
+
+/* Estilização para deixar os Dropdowns limpos no layout Glass */
+.select-clean {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    margin-top: 5px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+.select-clean option {
+    background: #fff2e8; /* Cor combinando com o seu --input-bg */
+    color: #000;
+}
+
+/* Checkbox group styling for restrictions */
+.checkbox-group{display:flex;flex-wrap:wrap;gap:8px}
+.checkbox-group label{background:rgba(255,255,255,0.6);padding:8px 10px;border-radius:12px;cursor:pointer;border:1px solid rgba(0,0,0,0.06);font-size:0.9rem}
+.checkbox-group input[type="checkbox"]{margin-right:8px;transform:translateY(2px)}
+
+/* Login restrictions block (compact) */
+#login-restrictions{display:flex;flex-direction:column;gap:6px}
+
+/* Registration restrictions */
+#reg-restrictions{display:flex;flex-wrap:wrap;gap:8px}
