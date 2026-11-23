@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Busca</title>
+</head>
+<body>
+    <main class="container">
+        <div class="section-header" style="margin-top: 40px;">
+            <h3 class="section-title">Resultados para: <span th:text="${termo}"></span></h3>
+        </div>
+
+        <div class="recipe-grid">
+            <article class="recipe-card" th:each="receita : ${receitas}">
+                <div class="img-container">
+                    <img th:src="${receita.imagem}" th:alt="${receita.titulo}">
+                </div>
+                <div class="card-info">
+                    <span class="category" th:text="${receita.categoria}">Categoria</span>
+                    <h4 th:text="${receita.titulo}">Nome da Receita</h4>
+                    <div class="meta">
+                        <span><i class="far fa-clock"></i> <span th:text="${receita.tempo}"></span></span>
+                        <span th:if="${receita.dificuldade}"> | <span th:text="${receita.dificuldade}"></span></span>
+                    </div>
+                </div>
+            </article>
+            
+            <div th:if="${#lists.isEmpty(receitas)}">
+                <p>Nenhuma receita encontrada para seu critério de busca.</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
